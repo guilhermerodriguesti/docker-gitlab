@@ -4,6 +4,7 @@ domain=$(hostname)
 
 export GITLAB_HOME=/opt/docker/gitlab
 mkdir -p $GITLAB_HOME
+cd $GITLAB_HOME
 
 cat <<EOF > $GITLAB_HOME/docker-compose.yml
 web:
