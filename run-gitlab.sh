@@ -8,6 +8,7 @@ cd $GITLAB_HOME
 
 cat <<EOF > $GITLAB_HOME/docker-compose.yml
 web:
+  container_name: 'gitlab_web'
   image: 'gitlab/gitlab-ee:latest'
   restart: always
   hostname: 'gitlab.$domain.com'
@@ -26,3 +27,5 @@ EOF
 docker-compose up -d
 
 echo "Acesse:" http://gitlab.$domain.com:8929
+echo "User: root"
+docker exec -it gitlab_web cat /etc/gitlab/initial_root_password | grep Password
